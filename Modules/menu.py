@@ -2,7 +2,7 @@ import json
 from Modules import menu_art as gen, game_loader as game
 
 def get_menu():
-    """ Function used to get main menu list and print to console."""
+    """Function used to get main menu list and print to console."""
     
     file = open("Data/menu.json", "r")  # Call JSON file and read the contents
     
@@ -17,14 +17,14 @@ def get_menu():
     return menu
 
 def get_menu_art():
-    """ Function used to get random main menu art and print to console."""
+    """Function used to get random main menu art and print to console."""
     
     art = gen.create_art(gen.styles_list)
     
     return art
 
 def load_menu():
-    """ Function used to get and print art and menu to console."""
+    """Function used to get and print art and menu to console."""
 
     new_menu = get_menu()   # Get a new menu
     j = 1   # Counter for menu loop
@@ -48,24 +48,27 @@ def load_menu():
         game_choice = int(input("\nEnter the number to play the game. What is your choice? "))
         
         user_choice = str(new_menu[1][game_choice - 1]).lower()
-        print("You chose: " + user_choice + "\nPlease wait...")
             
         return user_choice
 
     except IndexError:
-        """ Error handling for user input that is out of range. """
+        """Error handling for user input that is out of range."""
         
         # Alert user of invalid input
         print("\nSorry, that number is not an option. Please, try again.")
         
     except ValueError:
-        """ Error handling for user input that is not an integer. """
+        """Error handling for user input that is not an integer."""
         
-        game_choice = input("Did you want to exit the game? ")
+        game_choice = input("Did you want to exit the game? (Y or N) ")
         
-        if str(game_choice).lower() == "y":
+        if str(game_choice).lower() == "y" or str(game_choice).lower() == "yes":
             
             return False
+        
+        elif str(game_choice).lower() == "n" or str(game_choice).lower() == "no":
+            
+            return True
             
         else:
         

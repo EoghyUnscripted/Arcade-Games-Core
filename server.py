@@ -29,13 +29,13 @@ while not end_of_game:
             loader.load(game_to_play)   # Call new instance of game for User
         
     except IndexError:
-        """ Error handling for user input that is out of range. """
+        """Error handling for user input that is out of range."""
         
         # Alert user of invalid input
         print("\nSorry, that number is not an option. Please, try again.")
         
     except ValueError:
-        """ Error handling for user input that is not an integer. """
+        """Error handling for user input that is not an integer."""
         
         # Alert user of invalid input
         print("\nSorry, you must enter an integer or 'EXIT' to end program. Please, try again.")

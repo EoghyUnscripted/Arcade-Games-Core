@@ -193,7 +193,7 @@ styles_list = [
 ]
 
 def create_art(styles_list):
-    """ Function that chooses menu art at random. """
+    """Function that chooses menu art at random."""
     
     new_num = random.randint(0,len(styles_list)-1)
     
