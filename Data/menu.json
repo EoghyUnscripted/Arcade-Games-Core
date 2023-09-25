@@ -1,0 +1,16 @@
+[
+    {
+        "1": {
+            "name":"Blackjack",
+            "alt":"blackjack"
+        },
+        "2": {
+            "name":"Hangman",
+            "alt":"hangman"
+        },
+        "3": {
+            "name":"Quiz Game",
+            "alt":"quiz_game"
+        }
+    }
+]
