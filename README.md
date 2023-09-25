@@ -16,6 +16,10 @@ I built this core Python program for the nostalgia. And those of you that rememb
     pip install requests
     ```
 
+## Run
+
+This is a core application and can be called in the command line interface (CLI) directly or run using an IDE like Visual Studio Code. Simply call the `server.py` file and it will run automatically.
+
 ## Games
 
 1. Blackjack
