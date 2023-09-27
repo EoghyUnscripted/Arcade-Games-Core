@@ -1,5 +1,5 @@
 import json
-from Modules import menu_art as gen, game_loader as game
+from Modules import menu_art as gen
 
 def get_menu():
     """Function used to get main menu list and print to console."""
@@ -19,6 +19,7 @@ def get_menu():
 def get_menu_art():
     """Function used to get random main menu art and print to console."""
     
+    # Chooses a random artwork from the data file to make it fun
     art = gen.create_art(gen.styles_list)
     
     return art
@@ -36,19 +37,21 @@ def load_menu():
 
     # Print all menu items
     for i in range(0, len(new_menu[1])):
-        output = f"{j}  {new_menu[1][i]}"
-        print(output)
-        j += 1
+        
+        output = f"{j}  {new_menu[1][i]}"   # Format output
+        print(output)   # Print output
+        j += 1  # Next index in line
 
-    print(f"\n{'#' * 50}\n{'#' * 50}")
+    print(f"\n{'#' * 50}\n{'#' * 50}")  # Print bottom banner
     
     try:
     
         # Get user input for game selection
         game_choice = int(input("\nEnter the number to play the game. What is your choice? "))
         
-        user_choice = str(new_menu[1][game_choice - 1]).lower()
-            
+        user_choice = str(new_menu[1][game_choice - 1]).lower() # Get name of game
+        
+        # Return to server.py 16
         return user_choice
 
     except IndexError:
@@ -60,14 +63,19 @@ def load_menu():
     except ValueError:
         """Error handling for user input that is not an integer."""
         
+        # Check if user wants to exit the game
         game_choice = input("Did you want to exit the game? (Y or N) ")
         
+        # If the user wants to exit
         if str(game_choice).lower() == "y" or str(game_choice).lower() == "yes":
             
+            # Return to server.py 16
             return False
         
+        # If the user does not want to exit
         elif str(game_choice).lower() == "n" or str(game_choice).lower() == "no":
             
+            # Return to server.py 16
             return True
             
         else:
