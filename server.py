@@ -1,7 +1,4 @@
-# TODO: Import required libraries
 import os
-
-# TODO: Import Arcade modules
 from Modules import menu, game_loader as loader
 
 end_of_game = False # Start gameplay Loop

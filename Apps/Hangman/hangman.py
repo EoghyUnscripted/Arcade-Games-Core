@@ -6,8 +6,8 @@ def get_new_word():
     """Function that returns a random word from the list."""
     
     file = open("Apps/Hangman/Data/hangman_words.json", "r")    # Open data file to load words
-    read_file = json.load(file)
-    word_list = [i for i in read_file]
+    read_file = json.load(file) # Read data to variable
+    word_list = [i for i in read_file]  # Create new list from file data
     chosen_word = random.choice(word_list).upper() # Get a random word from the list
     
     return chosen_word
