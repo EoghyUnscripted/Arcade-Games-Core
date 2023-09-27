@@ -25,6 +25,12 @@ This is a core application and can be called in the command line interface (CLI)
 1. Blackjack
 2. Hangman
 3. Quiz Game
+4. Treasure Island
+
+### Treasure Island
+
+> `9.27.2023` This game currently has 3 stories in the JSON data file, they all have different names but they are the same story. I duplicated the data for testing and left
+> them as-is for demonstration. However, I will be creating some new storylines ASAP!
 
 ## File Hierarchy Glossary
 
