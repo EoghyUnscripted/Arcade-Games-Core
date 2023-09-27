@@ -1,6 +1,7 @@
 from Apps.Blackjack import blackjack
 from Apps.Hangman import hangman
 from Apps.Quiz_Game import quiz_game
+from Apps.Treasure_Island import treasure_island
 
 def get_game(name):
     """Function used to call the application load function in the chosen game."""
@@ -17,6 +18,10 @@ def get_game(name):
     elif name == "quiz_game":
         
         quiz_game.load()    
+    
+    elif name == "treasure_island":
+        
+        treasure_island.load()   
 
 def load(game):
     """Function used to load user chosen game to the console."""
