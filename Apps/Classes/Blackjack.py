@@ -195,8 +195,6 @@ class Blackjack():
             self.user_cards.append(self.cards[self.deal_cards()])  # Deal user cards, adds to user list
             self.dealer_cards.append(self.cards[self.deal_cards()])    # Deal dealer cards, add to dealer list
 
-        hit_card = True # Sets conditional for looping game play
-
         while self.status: # While game is active
             
             scores = self.get_scores()   # Get initial/updated scores
