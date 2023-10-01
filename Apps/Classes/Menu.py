@@ -6,6 +6,7 @@ class Menu():
         # Import required classes
         from Apps.Classes.Blackjack import Blackjack
         from Apps.Classes.Hangman import Hangman
+        from Apps.Classes.Rock_Paper_Scissors import Rock_Paper_Scissors as RPS
         
         self.art = """
          ____                             _                      _      
@@ -20,7 +21,8 @@ class Menu():
         self.status = True  # Set object status to True
         self.games = [
                         {"name":"Blackjack","dir":Blackjack},
-                        {"name":"Hangman","dir":Hangman}
+                        {"name":"Hangman","dir":Hangman},
+                        {"name":"Rock, Paper, Scissors","dir":RPS}
                     ]   # Set list of games
         self.selected_game = None # Blank variable to store chosen game to load
 
@@ -195,7 +197,7 @@ class Menu():
                     print("Sorry, we seemed to experience unexpected technical issues during your gameplay.\nThe program will now exterminate you for your part in this error, goodbye!")
                     print(30 * "\\¡/" + "\n")   # Print bottom border
                     self.status = False    # Stop the game loop
-                    exit    # Exit the program
+                    exit()    # Exit the program
                 
             self.load_selected_game()   # Loads the selected game for user
             self.clear()    # Clear the menu
