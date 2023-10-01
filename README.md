@@ -34,18 +34,10 @@ This is a core application and can be called in the command line interface (CLI)
 
 ## File Hierarchy Glossary
 
-### Apps Folder
-
-This directory hosts all of the required application file packages for the parent program or directory. Usually includes self-contained packages with it's own subdirectories like `Blackboard` or `Hangman`.
-
 ### Classes Folder
 
-This directory hosts all of the python Class files required for use with the parent program or directory. For example, the `Brain.py` and `Question.py` class files will reside here for the "Quiz Game" subdirectory.
+This directory hosts all of the class files required to run the application and the games that are available, including `Blackjack` and `Hangman`.
 
 ### Data Folder
 
 This directory hosts all of the required data for the parent program or directory. This includes any app-related data such as SQLite databases, JSON files, APIs, etc.
-
-### Modules Folder
-
-This directory contains all of the required module files to operate the primary application `server.py`. This directory includes all globally used functions, methods, and data like the menu.
