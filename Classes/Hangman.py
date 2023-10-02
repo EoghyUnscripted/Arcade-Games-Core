@@ -11,7 +11,8 @@ class Hangman():
                 |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                                     __/ |                      
                                    |___/    ''' # Set the game art
-        self.intro = "Welcome to the classic game of Hangman! The goal is to guess the word before it's GAME OVER!\nAre you ready to try your luck? No cheating!"
+        self.intro = (f"Welcome to the classic game of Hangman! The goal is to guess the word before it's GAME OVER!\n"
+                      f"Are you ready to try your luck? No cheating!")
         self.status = True  # Set object status to True
         self.lives = 6   # Variable to track lives remaining in game
         self.chosen_word = self.get_new_word()  # Blank variable to hold chosen word
@@ -23,7 +24,7 @@ class Hangman():
         """Method used to get stages art from external python file."""
         
         # Import the necessary data file
-        from Apps.Classes.Data.hangman_stages import stages as lives
+        from Classes.Data.hangman_stages import stages as lives
         
         stages = [i for i in lives] # Create new list with file data
         
@@ -35,7 +36,7 @@ class Hangman():
         import json
         import random
         
-        with open("Apps/Classes/Data/hangman_words.json", "r") as file:
+        with open("Classes/Data/hangman_words.json", "r") as file:
     
             read_file = json.load(file) # Read data to variable
             
@@ -67,8 +68,8 @@ class Hangman():
     def print_intro(self):
         """Method used to print menu intro to console."""
         
-        print(81 * "*" + "\n")  # Prints a top border
-        print(self.intro + "\n")   # Prints intro
+        print(81 * "*")  # Prints a top border
+        print(self.intro)   # Prints intro
         print(81 * "*") # Prints a bottom border
         
     def get_status(self):
@@ -121,7 +122,7 @@ class Hangman():
         self.clear()    # Clear the console
         
     def play(self):
-        """Function to load Hangman game for user."""
+        """Method to load Hangman game for user."""
         
         self.print_game_menu()  # Print game menu to the console
         

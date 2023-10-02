@@ -12,7 +12,8 @@ class Blackjack():
               |  \/ K|                            _/ |                
               `------'                           |__/           
         """ # Set the game art
-        self.intro = "Welcome to Blackjack! The goal is to get your hand as close to 21 as you can.\nBut you can't go over, or the dealer wins. Round (1) starts now!"
+        self.intro = (f"Welcome to Blackjack! The goal is to get your hand as close to 21 as you can.\n"
+                     f"But you can't go over, or the dealer wins. Round (1) starts now!")
         self.status = True  # Set object status to True
         self.cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]    # List of cards to deal
         self.user_cards = []    # Stores dealt cards for user
@@ -36,8 +37,8 @@ class Blackjack():
     def print_intro(self):
         """Method used to print menu intro to console."""
         
-        print(81 * "*" + "\n")  # Prints a top border
-        print(self.intro + "\n")   # Prints intro
+        print(81 * "*")  # Prints a top border
+        print(self.intro)   # Prints intro
         print(81 * "*") # Prints a bottom border
         
     def get_status(self):
@@ -186,7 +187,7 @@ class Blackjack():
             return  # Skip the command to clear, continue program
         
     def play(self):
-        """Main method to run game script."""
+        """Method to load Blackjack for user."""
         
         self.print_game_menu()
 
