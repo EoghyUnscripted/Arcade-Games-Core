@@ -6,11 +6,12 @@ class Rock_Paper_Scissors():
                 _______             _______                  _______
             ---'   ____)        ---'   ____)____         ---'   ____)____
                   (_____)                 ______)                  ______)
-            ROCK   (_____)      PAPER      _______)      SCISSORS__________)
+            ROCK   (_____)      PAPER     _______)      SCISSORS  ________)
                   (____)                 _______)              (____)
             ---.__(___)         ---.__________)          ---.__(___)
         """ # Set the game art
-        self.intro = "Welcome to Rock, Paper, Scissors game that you literally don't need an app to play!\nSarcasm aside, you know the drill. Time to pick a move!"
+        self.intro = (f"Welcome to Rock, Paper, Scissors game that you literally don't need an app to play!\n"
+                      f"Sarcasm aside, you know the drill. Time to pick a move!")
         self.status = True  # Set object status to True
         self.user_choice = ""   # Set blank variable for user choice
         self.bot_choice = self.get_random_bot_choice()    # Set blank variable for bot choice
@@ -72,8 +73,8 @@ class Rock_Paper_Scissors():
     def print_intro(self):
         """Method used to print menu intro to console."""
         
-        print(81 * "*" + "\n")  # Prints a top border
-        print(self.intro + "\n")   # Prints intro
+        print(81 * "*")  # Prints a top border
+        print(self.intro)   # Prints intro
         print(81 * "*") # Prints a bottom border
         
     def get_status(self):
@@ -162,7 +163,7 @@ class Rock_Paper_Scissors():
         self.bot_choice = ""    # Resets the bot choice
         
     def play(self):
-        """Function to load Rock, Paper, Scissors game for user."""
+        """Method to load Rock, Paper, Scissors game for user."""
         
         art = self.get_game_choices()   # Sets list of game choices from file
         text = ["Rock", "Paper", "Scissors"]    # Sets printable name options
@@ -175,7 +176,7 @@ class Rock_Paper_Scissors():
             try:
                 
                 # Prompt the user to enter an integer to chose move
-                self.user_choice = int(input("Enter 0 for Rock, 1 for Paper, 2 for Scissors: "))
+                self.user_choice = int(input("\nEnter 0 for Rock, 1 for Paper, 2 for Scissors: "))
                 self.bot_choice = self.get_random_bot_choice()  # Set random choice for bot
                 
             # If not an integer or out of index range
