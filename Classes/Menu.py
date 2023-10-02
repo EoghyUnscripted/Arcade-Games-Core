@@ -7,6 +7,7 @@ class Menu():
         from Classes.Blackjack import Blackjack
         from Classes.Hangman import Hangman
         from Classes.Rock_Paper_Scissors import Rock_Paper_Scissors as RPS
+        from Classes.Quiz_Game import Quiz_Game
         
         self.art = """
          ____                             _                      _      
@@ -22,7 +23,8 @@ class Menu():
         self.games = [
                         {"name":"Blackjack","dir":Blackjack},
                         {"name":"Hangman","dir":Hangman},
-                        {"name":"Rock, Paper, Scissors","dir":RPS}
+                        {"name":"Rock, Paper, Scissors","dir":RPS},
+                        {"name":"Quiz Game","dir":Quiz_Game}
                     ]   # Set list of games
         self.selected_game = None # Blank variable to store chosen game to load
 
@@ -164,13 +166,14 @@ class Menu():
                 # Prompt user to choose a game to play
                 select_game = int(input("What game would you like to play?: ")) # User input from console
                 self.set_selected_game(select_game - 1)    # Set the selected game
-                self.clear()
+                self.clear()    # Clear console
 
             # Error handling if integer out of index range
             except IndexError:
                 
                 # Prompt user to enter a new number
                 select_game = int(input("Sorry, that is not an option. Please chose another number: "))
+                self.set_selected_game(select_game - 1)    # Set the selected game
                 
             # Error handling catch-all
             except:
@@ -189,6 +192,7 @@ class Menu():
                     
                     # Prompt user to enter a new number
                     select_game = int(input("Please choose a number to play: "))
+                    self.set_selected_game(select_game - 1)    # Set the selected game
                     
                 else:
                 
