@@ -18,6 +18,7 @@ class Blackjack():
         self.cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]    # List of cards to deal
         self.user_cards = []    # Stores dealt cards for user
         self.dealer_cards = []   # Stores dealt cards for dealer
+        self.game_scores = {}    # Set initial scores dictionary
 
     def get_game_art(self):
         """Method used to get game art."""
@@ -58,15 +59,51 @@ class Blackjack():
     def compare_scores(self):
         """Method to calculate final scores at the end of the game and determine the winner"""
         
-        scores = self.get_scores() # Calls function to get updated scores for each hand
+        dealer_wins = """ 
+         ___           _          __      ___         _ 
+        |   \ ___ __ _| |___ _ _  \ \    / (_)_ _  __| |
+        | |) / -_) _` | / -_) '_|  \ \/\/ /| | ' \(_-<_|
+        |___/\___\__,_|_\___|_|     \_/\_/ |_|_||_/__(_)
+        """
+        
+        user_wins = """
+         _   _              __      ___         _ 
+        | | | |___ ___ _ _  \ \    / (_)_ _  __| |
+        | |_| (_-</ -_) '_|  \ \/\/ /| | ' \(_-<_|
+         \___//__/\___|_|     \_/\_/ |_|_||_/__(_)
+        """
+        
+        tie = """
+         _____ _     _ 
+        |_   _(_)___| |
+          | | | / -_)_|
+          |_| |_\___(_)
+        """
+        
+        game_over = """
+         _  _      __      ___                   
+        | \| |___  \ \    / (_)_ _  _ _  ___ _ _ 
+        | .` / _ \  \ \/\/ /| | ' \| ' \/ -_) '_|
+        |_|\_\___/   \_/\_/ |_|_||_|_||_\___|_|  
+        """
+        
+        unknown = """
+         _   _         _     _                 _             _ 
+        | | | |_ _  __| |___| |_ ___ _ _ _ __ (_)_ _  ___ __| |
+        | |_| | ' \/ _` / -_)  _/ -_) '_| '  \| | ' \/ -_) _` |
+         \___/|_||_\__,_\___|\__\___|_| |_|_|_|_|_||_\___\__,_|
+        """
 
-        if scores["Dealer"] < 17:   # Checks id dealer hand has less than 17
+        if self.game_scores["Dealer"] < 17:   # Checks id dealer hand has less than 17
             
             self.dealer_cards.append(self.cards[self.deal_cards()])    # Pulls another card
-            scores = self.get_scores()   # Updates the score
+            self.set_game_scores() # Calls function to get updated scores for each hand
             
-        dealer_score = scores["Dealer"] # Get the dealer score and set to variable
-        user_score = scores["User"] # Get the user score and set to variable
+        else:   # If not
+            
+            self.set_game_scores() # Calls function to get updated scores for each hand
+
+        # TODO: When Blackjack, code should handle the response once returned
 
         # Loops during first deal of 2 cards if check_score() triggers false
         if len(self.user_cards) == 2:
@@ -83,29 +120,49 @@ class Blackjack():
                 return "Dealer with Blackjack"  # Dealer wins automatically
 
         # Determines if Ace is 11 or 1
-        if 11 in self.user_cards and user_score > 21:    # If over 21, Ace is 1
-            user_score -= 10    # Subtracts 10 from score
+        if 11 in self.user_cards and self.game_scores["User"] > 21:    # If over 21, Ace is 1
             
-        elif 11 in self.dealer_cards and dealer_score > 21:  # If over 21, Ace is 1
-            dealer_score -= 10  # Subracts 10 from score
-
-        if user_score > 21 and dealer_score > 21:   # If both hands are over 21
-            return "Neither"    # No winner
-
-        if user_score > 21: # If user score is over 21
-            return "Dealer" # Dealer wins
+            self.game_scores["User"] -= 10    # Subtracts 10 from score
+            
+        elif 11 in self.dealer_cards and self.game_scores["Dealer"] > 21:  # If over 21, Ace is 1
+            
+            self.game_scores["Dealer"] -= 10  # Subracts 10 from score
+            
+        # Check updated hand
+        if self.game_scores["User"] > 21 and self.game_scores["Dealer"] > 21:   # If both hands are over 21
+            
+            print(game_over)    # Print game over art
+            return "Neither"    # Return no winner
         
-        elif dealer_score > 21: # If dealer score is over 21
-            return "User"   # User wins
+        elif self.game_scores["User"] > 21 and self.game_scores["Dealer"] <= 21:   # If only user hand is over 21
+            
+            print(dealer_wins)  # Print dealer wins art
+            return "Dealer"     # Return Dealer
         
-        elif user_score == dealer_score:    # If score is the same
-            return "Draw"   # Tied
+        elif self.game_scores["Dealer"] > 21 and self.game_scores["User"] <= 21:   # If only dealer hand is over 21
+            
+            print(user_wins)  # Print user wins art
+            return "User"     # Return User
         
-        elif user_score > dealer_score: # If user score is greater than dealers
-            return "User"   # User wins
+        elif self.game_scores["User"] == self.game_scores["Dealer"]:    # If score is the same
+            
+            print(tie)      # Print tie art
+            return "Draw"   # Return Draw
         
-        elif dealer_score > user_score: # If dealer score is greater than users
-            return "Dealer" # Dealer wins
+        elif self.game_scores["User"] > self.game_scores["Dealer"]:    # If user score is greater than dealer
+            
+            print(user_wins)    # Print user wins art
+            return "User"       # Return User
+        
+        elif self.game_scores["Dealer"] > self.game_scores["User"]:    # If dealer score is greater than user
+            
+            print(dealer_wins)    # Print dealer wins art
+            return "Dealer"       # Return Dealer
+        
+        else:   # If unknown
+            
+            print(unknown)    # Print dealer wins art
+            return "Unknown"  # Return Unknown
 
     def check_hands(self):
         """Method used to check each players hand during game play for certain conditions and determines if game continues or ends."""
@@ -133,23 +190,25 @@ class Blackjack():
         else:   # If no condition is met
             return False    # Continue game
 
-    def get_scores(self):
+    def get_game_scores(self):
+        """Method used to return current scores for user and dealer."""
+        
+        return self.game_scores   # Return scores
+    
+    def set_game_scores(self):
         """Method used to calculate current scores for user and dealer and sets to dictionary."""
         
         user_score = sum(self.user_cards)    # Get user score
         dealer_score = sum(self.dealer_cards)    # Get dealer score
-        scores = {
-            "User":user_score,  # Set user score
-            "Dealer":dealer_score   # Set dealer score
-        }
-        
-        return scores   # Return the dictionary
+        self.game_scores["User"] = user_score  # Set user score
+        self.game_scores["Dealer"] = dealer_score   # Set dealer score
     
-    def clear_hands(self):
+    def reset(self):
         """Method used to reset card lists for new game."""
         
         self.user_cards = []    # Blank list for new user hand
         self.dealer_cards = []    # Blank list for new dealer hand
+        self.set_game_scores()
     
     def print_game_menu(self):
         """Method to print main menu to the console."""
@@ -196,16 +255,19 @@ class Blackjack():
             self.user_cards.append(self.cards[self.deal_cards()])  # Deal user cards, adds to user list
             self.dealer_cards.append(self.cards[self.deal_cards()])    # Deal dealer cards, add to dealer list
 
+        self.set_game_scores()   # Set updated scores
+        
         while self.status: # While game is active
             
-            scores = self.get_scores()   # Get initial/updated scores
+            self.set_game_scores()   # Set updated scores
             
             print("\n" + 81 * "#" + "\n#") # Print top border
-            print(f"# Your cards: {self.user_cards}, current score: {scores['User']}")   # Prints cards and score for user
+            print(f"# Your cards: {self.user_cards}, current score: {self.game_scores['User']}")   # Prints cards and score for user
             print(f"# Dealer's cards: {self.dealer_cards}\n" + "#")   # Prints cards in dealer hand
             print(81 * "#") # Print bottom border
 
             if self.check_hands():   # Checks if conditions are met to end game
+                
                 self.status = False    # Stops loop if true
         
             else:   # If false, continue
@@ -216,50 +278,33 @@ class Blackjack():
                 
                     self.status = False    # Stop loop
                     self.compare_scores()    # Get results of game
-                    scores = self.get_scores()   # Update the scores
+                    self.set_game_scores()   # Update the scores
                 
                 elif hit == "y":    # If yes
                     
                     self.user_cards.append(self.cards[self.deal_cards()])  # Get and add next card to users list
                     self.dealer_cards.append(self.cards[self.deal_cards()])    # Get and add next card to dealers list
+                    self.set_game_scores()  # Update the scores
         
-        self.clear()    # Clear console
-        self.print_game_art()   # Print game art
-        print(81 * "#" + "\n#")
-        print(f"# Your final hand: {self.user_cards}, final score: {scores['User']}")    # Print final cards and user score
-        print(f"# Dealer final hand: {self.dealer_cards}, final score: {scores['Dealer']}\n#")    # Print final cards and dealer score
-        print(81 * "#" + "\n") # Print bottom border
-        
-        winner = self.compare_scores()   # Compare the hands one more time for updates
-        
-        if winner == "Dealer":
+            self.clear()    # Clear console
+            self.print_game_art()   # Print game art
+            print(81 * "#" + "\n#")
+            print(f"# Your final hand: {self.user_cards}, final score: {self.game_scores['User']}")    # Print final cards and user score
+            print(f"# Dealer final hand: {self.dealer_cards}, final score: {self.game_scores['Dealer']}\n#")    # Print final cards and dealer score
+            print(81 * "#" + "\n") # Print bottom border
             
-            winner = """ 
-                        ___           _          __      ___         _ 
-                       |   \ ___ __ _| |___ _ _  \ \    / (_)_ _  __| |
-                       | |) / -_) _` | / -_) '_|  \ \/\/ /| | ' \(_-<_|
-                       |___/\___\__,_|_\___|_|     \_/\_/ |_|_||_/__(_)
-                    """
-
-            print(winner)
+            self.compare_scores()   # Compare the hands one more time for updates
             
-        elif winner == "User":
+            start_game = input("\nDo you want to play another game of Blackjack? Y or N: ").lower() # Prompt if user wants to play again
+
+            if start_game == "y":   # If yes
+
+                self.status = True  # Keeps loop going
+                self.clear()    # Clear the console
+                self.reset()  # Clear the cards
+                self.play()   # Restart game
             
-            winner = """
-                     _   _              __      ___         _ 
-                    | | | |___ ___ _ _  \ \    / (_)_ _  __| |
-                    | |_| (_-</ -_) '_|  \ \/\/ /| | ' \(_-<_|
-                     \___//__/\___|_|     \_/\_/ |_|_||_/__(_)
-                """
-            print(winner)
-
-        start_game = input("\nDo you want to play another game of Blackjack? Y or N: ").lower() # Prompt if user wants to play again
-
-        if start_game == "y":   # If yes
-
-            self.clear()    # Clear the console
-            self.clear_hands()  # Collect the cards
-            self.play()   # Restart game
-        
-        else:   # If no
-            return  # End game
+            else:   # If no
+                
+                self.status = False # Ends loop
+                return  # End game
