@@ -18,7 +18,7 @@ I built this core Python program for the nostalgia. And those of you that rememb
 
 ## Run
 
-This is a core application and can be called in the command line interface (CLI) directly or run using an IDE like Visual Studio Code. Simply call the `server.py` file and it will run automatically.
+This is a core application and can be called in the command line interface (CLI) directly or run using an IDE like Visual Studio Code. Simply call the `main.py` file and it will run automatically.
 
 ## Games
 
@@ -40,3 +40,11 @@ The Modules directories store required files for the parent directory files. For
 ### Data Folder
 
 The Data directories store any external data file or Python file that is primarily used for behind-the-scenes functions like a JSON file that stores standard game data used for gameplay. It also includes API functions and large string variables like the `rock_paper_scissors_art.py` file which stores the artwork to be displayed during gameplay.
+
+## Replit Demo
+
+["Penny Arcade"](https://replit.com/@EoghyUnscripted/Penny-Arcade) This Repl is a live demo version of the Arcade Games Core and can be run without additional tools or skillset for convenience
+
+## GitHub Repository
+
+["Arcade Games Core"](https://github.com/EoghyUnscripted/Arcade-Games-Core) This is the GitHub repository for the original application
