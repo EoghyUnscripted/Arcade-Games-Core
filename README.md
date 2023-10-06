@@ -143,8 +143,8 @@ Project Link: [https://github.com/EoghyUnscripted/Arcade-Games-Core](https://git
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-- 
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) - Inspiration for this README
+- Bullwinkle - Is tú grá mo chroí agus mo chúis
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) - Template used for this README
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
