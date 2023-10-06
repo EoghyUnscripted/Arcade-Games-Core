@@ -16,7 +16,7 @@
     <a href="https://github.com/EoghyUnscripted/Arcade-Games-Core"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/EoghyUnscripted/Arcade-Games-Core">View Demo</a>
+    <a href="https://replit.com/@EoghyUnscripted/Penny-Arcade">View Demo</a>
     ·
     <a href="https://github.com/EoghyUnscripted/Arcade-Games-Core/issues">Report Bug</a>
     ·
@@ -67,8 +67,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To ensure success in running the application, please follow the steps below prior to attempting to run the application in the terminal, console, or IDE of your choice.
 
 ### Prerequisites
 
