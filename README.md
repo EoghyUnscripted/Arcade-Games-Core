@@ -89,11 +89,10 @@ MacOS comes pre-installed with Python. You can check for the installed Python ve
 Python 3.11.5
 ```
 
-To update to the newest version:
+To update to the latest version:
 
 ```sh
-% python --version
-Python 3.11.5
+% brew update && brew upgrade python
 ```
 
 #### Install Requests
