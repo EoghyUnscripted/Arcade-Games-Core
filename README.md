@@ -143,6 +143,8 @@ Project Link: [https://github.com/EoghyUnscripted/Arcade-Games-Core](https://git
 
 - Bullwinkle - Is tú grá mo chroí agus mo chúis
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template) - Template used for this README
+- [8Ball-Api](https://www.eightballapi.com/docs) - API for Magic 8 Ball
+- [Open-Trivia-Database](https://opentdb.com) - API for Quiz Game
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
