@@ -8,6 +8,7 @@ class Menu():
         from Classes.Hangman import Hangman
         from Classes.Rock_Paper_Scissors import Rock_Paper_Scissors as RPS
         from Classes.Quiz_Game import Quiz_Game
+        from Classes.Magic_8_Ball import Magic_8_Ball
         
         self.art = """
          ____                             _                      _      
@@ -24,7 +25,8 @@ class Menu():
                         {"name":"Blackjack","dir":Blackjack},
                         {"name":"Hangman","dir":Hangman},
                         {"name":"Rock, Paper, Scissors","dir":RPS},
-                        {"name":"Quiz Game","dir":Quiz_Game}
+                        {"name":"Quiz Game","dir":Quiz_Game},
+                        {"name":"Magic 8 Ball","dir":Magic_8_Ball}
                     ]   # Set list of games
         self.selected_game = None # Blank variable to store chosen game to load
 
