@@ -31,7 +31,7 @@ class Hangman():
         return stages   # Return list of stages artwork
        
     def get_new_word(self):
-        """Function that returns a random word from the list."""
+        """Method that returns a random word from the list."""
         
         import json
         import random
@@ -46,7 +46,7 @@ class Hangman():
         return chosen_word
  
     def set_new_word(self, word):
-        """Function that sets a chosen word."""
+        """Method that sets a chosen word."""
         
         self.chosen_word = word # Set the new word
         

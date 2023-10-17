@@ -17,30 +17,30 @@ class Rock_Paper_Scissors():
         self.bot_choice = self.get_random_bot_choice()    # Set blank variable for bot choice
        
     def get_bot_choice(self):
-        """Function that gets the bot move choice."""
+        """Method that gets the bot move choice."""
         
         return self.bot_choice  # Returns bot choice
     
     def set_bot_choice(self, choice):
-        """Function that sets a move choice for the bot."""
+        """Method that sets a move choice for the bot."""
                 
         # Set the choice for bot
         self.bot_choice = choice
         
     def get_random_bot_choice(self):
-        """Function that sets a random move choice for the bot."""
+        """Method that sets a random move choice for the bot."""
         
         import random   # Used to pick a random choice
         
         return random.randint(0, 2)    # Set the choice for bot
         
     def get_user_choice(self):
-        """Function that get the user move choice."""
+        """Method that get the user move choice."""
         
         return self.user_choice  # Returns user choice
     
     def set_user_choice(self, choice):
-        """Function that sets a move for the user."""
+        """Method that sets a move for the user."""
                 
         # Set the choice for bot
         self.user_choice = choice
